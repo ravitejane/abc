@@ -42,6 +42,7 @@
 				<beans:value>teja.com.model.InPatent</beans:value>
 				<beans:value>teja.com.model.OutPatent</beans:value>
 				<beans:value>teja.com.model.Bed</beans:value>
+				<beans:value>teja.com.model.Admin</beans:value>
 			</beans:list>
 		</beans:property>
 		<beans:property name="hibernateProperties">
