@@ -25,6 +25,7 @@ public class Bed {
 	private String patentId;	
 	private int roomNo;
 	private String wardName;
+	
 	private String roomType;
 	private int charge;
 	
