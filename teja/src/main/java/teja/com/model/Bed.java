@@ -4,6 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -27,6 +29,10 @@ public class Bed {
 	private String roomType;
 	private int charge;
 	private boolean status;
+	
+	@OneToOne
+	@PrimaryKeyJoinColumn
+	private InPatent inPatent;
 	
 	public String getBedNo() {
 		return bedNo;
