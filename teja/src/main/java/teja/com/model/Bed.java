@@ -22,8 +22,6 @@ public class Bed {
 	@GenericGenerator(name="gen", strategy="foreign", parameters=@Parameter(name="property", value="InPatent"))
 	private String patentId;
 	
-	
-	
 	private int roomNo;
 	private String wardName;
 	private String roomType;
