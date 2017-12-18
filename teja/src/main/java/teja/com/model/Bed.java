@@ -21,7 +21,7 @@ public class Bed {
 	@Id
 	@Column(name="patentId", unique=true, nullable=false)
 	@GeneratedValue(generator="gen")
-	@GenericGenerator(name="gen", strategy="foreign", parameters=@Parameter(name="property", value="InPatent"))
+	@GenericGenerator(name="gen", strategy="foreign", parameters=@Parameter(name="property", value="inPatent"))
 	private String patentId;	
 	private int roomNo;
 	private String wardName;	

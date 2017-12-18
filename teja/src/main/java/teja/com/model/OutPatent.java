@@ -9,7 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity  
-@Table(name="OutPatent")  
+@Table(name="outPatent")  
 @AttributeOverrides({  
     @AttributeOverride(name="patentId", column=@Column(name="patentId")),  
     @AttributeOverride(name="name", column=@Column(name="name")),  
@@ -22,13 +22,13 @@ import javax.persistence.Table;
     @AttributeOverride(name="occupation", column=@Column(name="occupation")) ,
     @AttributeOverride(name="maritalStatus", column=@Column(name="maritalStatus")) 
 })  
-public class OutPatent {
+public class OutPatent extends Patent {
 	
 	private Date appointmentDate;
 	private String precption;
 	
 	
-	private Doctor doctorInCharge;  // apply one to many
+//	private Doctor doctorInCharge;  // apply one to many
 	
 	
 	
@@ -44,12 +44,6 @@ public class OutPatent {
 	}
 	public void setPrecption(String precption) {
 		this.precption = precption;
-	}
-	public Doctor getDoctorInCharge() {
-		return doctorInCharge;
-	}
-	public void setDoctorInCharge(Doctor doctorInCharge) {
-		this.doctorInCharge = doctorInCharge;
 	}
 	
 	

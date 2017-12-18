@@ -1,12 +1,10 @@
 package teja.com.model;
 
-import static javax.persistence.GenerationType.IDENTITY;
-
 import java.util.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -18,9 +16,8 @@ import javax.persistence.Table;
 public class Patent {
 	
 	@Id
-	@GeneratedValue(strategy = IDENTITY)
-	@Column(name="patentId")
 	private int patentId;
+	
 	private int name;
 	private Date dateOfBirth;
 	private String address;

@@ -11,7 +11,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity  
-@Table(name="InPatent")  
+@Table(name="inPatent")  
 @AttributeOverrides({  
     @AttributeOverride(name="patentId", column=@Column(name="patentId")),  
     @AttributeOverride(name="name", column=@Column(name="name")),  
@@ -24,13 +24,13 @@ import javax.persistence.Table;
     @AttributeOverride(name="occupation", column=@Column(name="occupation")) ,
     @AttributeOverride(name="maritalStatus", column=@Column(name="maritalStatus")) 
 })
-public class InPatent {
+public class InPatent extends Patent {
 	
 	private Date joiningDate;
 	private String staus;
-	private Doctor doctor;
 	
-	@OneToOne(mappedBy="InPatent", cascade=CascadeType.ALL)
+	
+	@OneToOne(mappedBy="inPatent", cascade=CascadeType.ALL)
 	private Bed bed;
 
 	public Date getJoiningDate() {
@@ -49,19 +49,7 @@ public class InPatent {
 		this.staus = staus;
 	}
 
-	public Doctor getDoctor() {
-		return doctor;
-	}
 
-	public void setDoctor(Doctor doctor) {
-		this.doctor = doctor;
-	}
 
-	public Bed getBed() {
-		return bed;
-	}
-
-	public void setBed(Bed bed) {
-		this.bed = bed;
-	}
+	
 }

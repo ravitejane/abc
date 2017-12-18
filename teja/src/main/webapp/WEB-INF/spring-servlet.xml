@@ -38,6 +38,10 @@
 		<beans:property name="annotatedClasses">
 			<beans:list>
 				<beans:value>teja.com.model.Person</beans:value>
+				<beans:value>teja.com.model.Patent</beans:value>
+				<beans:value>teja.com.model.InPatent</beans:value>
+				<beans:value>teja.com.model.OutPatent</beans:value>
+				<beans:value>teja.com.model.Bed</beans:value>
 			</beans:list>
 		</beans:property>
 		<beans:property name="hibernateProperties">
