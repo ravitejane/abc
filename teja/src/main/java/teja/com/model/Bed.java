@@ -27,6 +27,9 @@ public class Bed {
 	private String wardName;
 	private String roomType;
 	private int charge;
+	
+	
+	
 	private boolean status;
 	
 	@OneToOne
