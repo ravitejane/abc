@@ -12,8 +12,7 @@ import com.journaldev.spring.model.Person;
 public class JstlCore {
 	
 	@RequestMapping(value = "/curl", method = RequestMethod.GET)
-    public String curl(){
-        
+    public String curl(){        
         return "curl";
 	}
 	
