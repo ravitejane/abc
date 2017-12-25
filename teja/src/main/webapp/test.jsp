@@ -7,14 +7,14 @@
     <title>Bootstrap 101 Template</title>   
     
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"> -->
-	 <link href="css/customCss.css" type="text/css" rel="stylesheet">  
-	<link href="css/bootstrap.css" type="text/css" rel="stylesheet">
+	<!-- <link href="css/customCss.css" type="text/css" rel="stylesheet">  
+	<link href="css/bootstrap.css" type="text/css" rel="stylesheet"> -->
 	
 	
 	<style type="text/css">
 	
-	<%-- <%@include file="css/customCss.css" %>
-	<%@include file="css/bootstrap.css" %> --%>
+	<%@include file="css/customCss.css" %>
+	<%@include file="css/bootstrap.css" %>
 	
 	/* .customDiv{
 	margin:2px;
