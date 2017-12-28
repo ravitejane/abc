@@ -20,6 +20,11 @@
   
    <put-attribute name="body" value="/WEB-INF/views/test.jsp" />
   </definition>
+  
+  <definition name="test" extends="template-main">
+  
+   <put-attribute name="body" value="/WEB-INF/views/test.jsp" />
+  </definition>
 
   
 

@@ -14,8 +14,8 @@ public class HelloWorldController {
     public ModelAndView helloWorld() 
     {
     	Person p=new Person();
-    	p.setId(519);
-    	p.setName("ravi teja gattineni");
+    	p.setId(999);
+    	p.setName("ravi teja ");
     	p.setCountry("india");
         return new ModelAndView("index", "message", p);  
     }  
@@ -25,7 +25,7 @@ public class HelloWorldController {
     {
     	Person p=new Person();
     	p.setId(519);
-    	p.setName("ravi teja gattineni");
+    	p.setName("gattineni");
     	p.setCountry("india");
         return new ModelAndView("test", "message", p);  
     }  

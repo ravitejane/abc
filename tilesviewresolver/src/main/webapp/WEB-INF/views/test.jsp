@@ -11,6 +11,10 @@
 ${message.id} <br>
 ${message.name}<br>
 ${message.country}
+<br>
+
+<img src="C://logo.jpg" alt="Mountain View">
+
 
 </body>
 </html>

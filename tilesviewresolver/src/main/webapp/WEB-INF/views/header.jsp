@@ -8,6 +8,7 @@
 </head>
 <body>
 <center>
+<img src="C://logo.jpg" alt="Mountain View">
 <h1>welcome to spring tiles</h1>
 </center>
 <hr>
