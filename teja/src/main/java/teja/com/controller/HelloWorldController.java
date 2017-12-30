@@ -1,18 +1,14 @@
 package teja.com.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;  
-import org.springframework.web.bind.annotation.RequestMapping;  
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-
-import teja.com.model.Person;  
-import teja.com.service.PersonService;
+import teja.com.model.Person;
 @Controller  
 public class HelloWorldController {  
 	
-	@Autowired
-	PersonService ps;
+	
     @RequestMapping("/hello")  
     public ModelAndView helloWorld() 
     {
@@ -21,7 +17,7 @@ public class HelloWorldController {
     	p.setName("ravi teja gattineni");
     	p.setCountry("india");
     	
-    	ps.addPerson(p);
+    
     	
     	
     	System.out.println("coollllll");

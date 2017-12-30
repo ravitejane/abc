@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import teja.com.model.Doctor;
-import teja.com.model.Person;
 import teja.com.service.DoctorService;
 
 @Controller
@@ -25,13 +24,11 @@ public void setDoctorService(DoctorService doctorService) {
 	this.doctorService = doctorService;
 }
 
-
-
-
 	@RequestMapping(value = "/doctors", method = RequestMethod.GET)
 	public String listDoctors(Model model) {
-		model.addAttribute("doctor", new Person());
+		model.addAttribute("doctor", new Doctor());
 		model.addAttribute("listDoctors", this.doctorService.listDoctors());
+		System.out.println(this.doctorService.listDoctors());
 		return "doctor";
 	}
 	
