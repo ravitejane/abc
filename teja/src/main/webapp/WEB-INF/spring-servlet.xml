@@ -37,12 +37,13 @@
 		<beans:property name="dataSource" ref="dataSource" />
 		<beans:property name="annotatedClasses">
 			<beans:list>
-				<beans:value>teja.com.model.Person</beans:value>
+				<!-- <beans:value>teja.com.model.Person</beans:value>
 				<beans:value>teja.com.model.Patent</beans:value>
 				<beans:value>teja.com.model.InPatent</beans:value>
 				<beans:value>teja.com.model.OutPatent</beans:value>
-				<beans:value>teja.com.model.Bed</beans:value>
+				<beans:value>teja.com.model.Bed</beans:value> -->
 				<beans:value>teja.com.model.Admin</beans:value>
+				<beans:value>teja.com.model.Doctor</beans:value>
 			</beans:list>
 		</beans:property>
 		<beans:property name="hibernateProperties">
@@ -55,9 +56,8 @@
 		</beans:property>
 	</beans:bean>
 
-	<beans:bean id="personDAO" class="teja.com.dao.PersonDao">
-		<beans:property name="sessionFactory"
-			ref="hibernate4AnnotatedSessionFactory" />
+	<beans:bean id="personDAO" class="teja.com.dao.DoctorDao">
+		<beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
 	</beans:bean>
 
 	<context:component-scan base-package="teja.com.controller" />
@@ -70,7 +70,7 @@
 			ref="hibernate4AnnotatedSessionFactory" />
 	</beans:bean>
 	
-	<beans:bean id="personService" class="teja.com.service.PersonService">
+	<beans:bean id="personService" class="teja.com.service.DoctorService">
 	</beans:bean>
 	
 	
