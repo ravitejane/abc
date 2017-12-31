@@ -2,37 +2,22 @@ package teja.com.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Parameter;
 
 @Entity
 @Table(name="bed")
 public class Bed {
 	
-	@Column(unique=true)
-	private String bedNo;
-	
 	@Id
-	@Column(name="patentId", unique=true, nullable=false)
-	@GeneratedValue(generator="gen")
-	@GenericGenerator(name="gen", strategy="foreign", parameters=@Parameter(name="property", value="inPatent"))
-	private String patentId;	
+	@Column(name="bedNo")
+	private String bedNo;	
 	private int roomNo;
 	private String wardName;	
 	private String roomType;
 	private int charge;	
 	private boolean status;
-	
-	@OneToOne
-	@PrimaryKeyJoinColumn
-	private InPatent inPatent;
-	
+		
 	public String getBedNo() {
 		return bedNo;
 	}
@@ -69,5 +54,25 @@ public class Bed {
 	public void setStatus(boolean status) {
 		this.status = status;
 	}
+	public Bed(String bedNo, int roomNo, String wardName, String roomType,
+			int charge, boolean status) {
+		super();
+		this.bedNo = bedNo;
+		this.roomNo = roomNo;
+		this.wardName = wardName;
+		this.roomType = roomType;
+		this.charge = charge;
+		this.status = status;
+	}
+	public Bed() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return bedNo+" "+roomNo;
+	}
+	
 	
 }

@@ -28,7 +28,6 @@ public void setDoctorService(DoctorService doctorService) {
 	public String listDoctors(Model model) {
 		model.addAttribute("doctor", new Doctor());
 		model.addAttribute("listDoctors", this.doctorService.listDoctors());
-		System.out.println(this.doctorService.listDoctors());
 		return "doctor";
 	}
 	
@@ -38,9 +37,11 @@ public void setDoctorService(DoctorService doctorService) {
 		
 		if(d.getdId() == 0){
 			//new person, add it
+			
 			this.doctorService.addDoctor(d);;
 		}else{
 			//existing person, call update
+		
 			this.doctorService.updateDoctor(d);
 		}
 		
@@ -51,12 +52,15 @@ public void setDoctorService(DoctorService doctorService) {
 	@RequestMapping("/remove/{dId}")
     public String removeDoctor(@PathVariable("dId") int dId){
 		
+	
         this.doctorService.removeDoctor(dId);
+       
         return "redirect:/doctors";
     }
  
     @RequestMapping("/edit/{dId}")
     public String editDoctor(@PathVariable("dId") int dId, Model model){
+    	
         model.addAttribute("doctor", this.doctorService.getDoctorById(dId));
         model.addAttribute("listDoctors", this.doctorService.listDoctors());
         return "doctor";

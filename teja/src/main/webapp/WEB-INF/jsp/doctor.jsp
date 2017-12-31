@@ -24,7 +24,7 @@
 		<tr>
 			<td>
 				<form:label path="dId">
-					<spring:message text="ID"/>
+					<spring:message text="dId"/>
 				</form:label>
 			</td>
 			<td>

@@ -7,49 +7,52 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import teja.com.model.Doctor;
+import teja.com.model.Bed;
 
 @Repository
-public class DoctorDao {
+public class BedDao {
 	
-private SessionFactory sessionFactory;
-	
+	private SessionFactory sessionFactory;
+
 	@Autowired
 	public void setSessionFactory(SessionFactory sf){
 		this.sessionFactory = sf;
 	}
 
-	public void addDoctor(Doctor d) {
+	public void addBed(Bed d) {
 		Session session = this.sessionFactory.getCurrentSession();
 		session.persist(d);
 		
 	}
 
-	public void updateDoctor(Doctor d) {
+	public void updateBed(Bed d) {
 		Session session = this.sessionFactory.getCurrentSession();
 		session.update(d);
 		
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Doctor> listDoctor() {
+	public List<Bed> listBed() {
 		Session session = this.sessionFactory.getCurrentSession();
-		List<Doctor> doctorsList = session.createQuery("from Doctor").list();
-		
-		return doctorsList;
+		List<Bed> bedsList = session.createQuery("from Bed").list();
+			for(int i=0;i<bedsList.size();i++)
+			{
+				System.out.println((bedsList.get(i)).toString());
+			}
+		return bedsList;
 	}
 
-	public Doctor getDoctorById(int id) {
-		System.out.println(id);
+	public Bed getBedByNo(String bedNo) {
+		
 		Session session = this.sessionFactory.getCurrentSession();		
-		Doctor d = (Doctor) session.get(Doctor.class, new Integer(id));
-		// System.out.println(d.toString());
+		Bed d = (Bed) session.get(Bed.class, bedNo);
+		
 		return d;
 	}
 
-	public void removeDoctor(int id) {
+	public void removeBed(String bedNo) {
 		Session session = this.sessionFactory.getCurrentSession();
-		Doctor d = (Doctor) session.load(Doctor.class, new Integer(id));
+		Bed d = (Bed) session.load(Bed.class,bedNo);
 		if(null != d){
 			session.delete(d);
 		}
