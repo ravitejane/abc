@@ -13,12 +13,25 @@
 	</style>
 </head>
 <body>
-<h1>
+<h1 align="center">
 	Add a Bed	
 </h1>
-<c:url var="addAction" value="/bed/add"/>
+
+<c:if test="${!empty bed.bedNo}">
+		
+				<c:url var="addAction" value="/bedUpdate"/>
+		
+		</c:if>
+		
+		
+		<c:if test="${empty bed.bedNo}">
+		
+				<c:url var="addAction" value="/bed/add"/>
+		
+		</c:if>
+
 <form:form action="${addAction}" commandName="bed">
-	<table>
+	<table style="margin-left: 500px">
 	
 	<c:if test="${empty bed.bedNo}">
 		<tr>
@@ -28,7 +41,20 @@
 				</form:label>
 			</td>
 			<td>
-				<form:input path="bedNo" />
+				<form:input path="bedNo"/>
+			</td>
+		</tr>	
+	</c:if>
+	<c:if test="${!empty bed.bedNo}">
+		<tr>
+			<td>
+				<form:label path="bedNo">
+					<spring:message text="bedNo"/>
+				</form:label>
+			</td>
+			<td>
+				<form:input path="bedNo" disabled="true" readonly="true"/>
+				<form:hidden path="bedNo" />
 			</td>
 		</tr>	
 	</c:if>
@@ -107,10 +133,12 @@
 		</tr>		
 	</table>
 </form:form>
-
-<h3>Bed List</h3>
+<br>
+<hr>
+<br>
+<h3 align="center">Bed List</h3>
 <c:if test="${!empty listBeds}">
-	<table class="tg">
+	<table class="tg" style="margin-left: 300px">
 		<tr>
 			<th>Bed No</th>
 			<th>Room No</th>

@@ -28,20 +28,29 @@ public class BedController {
 		return "bed";
 	}
 	
+	@RequestMapping(value= "/bedUpdate", method = RequestMethod.POST)
+	public String updateBed(@ModelAttribute("bed") Bed d)
+	{
+		System.out.println(d.toString());
+		this.bedService.updateBed(d);
+		return "redirect:/beds";
+	}
+	
 	//For add and update person both
 	@RequestMapping(value= "/bed/add", method = RequestMethod.POST)
 	public String addBed(@ModelAttribute("bed") Bed d){
+		this.bedService.addBed(d);
 		
-		if(d.getBedNo()== null){
-			//new Bed, add it
-			
-			this.bedService.addBed(d);
-		}else{
-			//existing Bed, call update
-		
+	/*	String bedone=d.getBedNo();
+		if(this.bedService.getBedByNo(bedone)!=null)
+		{
+			this.bedService.updateBed(d);
+		}
+		else
+		{
 			this.bedService.addBed(d);
 		}
-		
+		*/
 		return "redirect:/beds";
 		
 	}
