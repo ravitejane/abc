@@ -33,7 +33,7 @@
 
 	<div class="row">
 		<div class="col-xs-12" style="min-height:50px">
-					<h1 align="center">XYZ Hospital Login Here</h1>
+					<h1 align="center">XYZ Login Here</h1>
 		</div>
 	</div>
 	<hr>
@@ -44,25 +44,25 @@
 					<div class="col-xs-4"></div>
 					
 					<div class="col-xs-4">
-				<form action="/login" method="post">
+				<form action="/teja/login" method="post">
 					<div class="form-group">
 						<label for="inputUserName">UserName</label>
-						<input class="form-control" placeholder="Username" type="text" id="InputUserName"/>
+						<input class="form-control" placeholder="Username" name="username" type="text" id="InputUserName"/>
 					</div>
 					<div class="form-group">
 						<label for="inputPassword">Password</label>
-						<input class="form-control" placeholder="password" type="password" id="Enter the password"/>
+						<input class="form-control" placeholder="Password" name="password" type="password" id="Enter the password"/>
 					</div>
 					<div class="form-group">
 						<label for="gender">Gender</label>
-						<select id="selectGender" class="form-control">
+						<select id="selectGender" name="role" class="form-control">
 							<option>Admin</option>
 							<option>Doctor</option>
 							<option>Receptionist</option>
 							<option>Patent</option>
 						</select>
 					</div>
-						<button class="btn btn-default" type="submit">Login</button>
+						<button class="btn btn-primary" type="submit">Login</button>
 				</form>
 				</div>
 					

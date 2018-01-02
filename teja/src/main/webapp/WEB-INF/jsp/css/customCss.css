@@ -1,0 +1,7 @@
+.customDiv{
+	margin:2px;
+	background-color:silver;
+	min-height:200px;  /* height of the grid*/
+	text-align:center;
+	font-size:large;
+}

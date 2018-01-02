@@ -41,6 +41,7 @@
 				<beans:value>teja.com.model.Patent</beans:value>
 				<beans:value>teja.com.model.InPatent</beans:value>
 				<beans:value>teja.com.model.OutPatent</beans:value> -->
+				<beans:value>teja.com.model.Login</beans:value>
 				<beans:value>teja.com.model.Bed</beans:value> 
 				<beans:value>teja.com.model.Admin</beans:value>
 				<beans:value>teja.com.model.Doctor</beans:value>
@@ -63,6 +64,10 @@
 	<beans:bean id="bedDAO" class="teja.com.dao.BedDao">
 		<!-- <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" /> -->
 	</beans:bean>
+	
+		<beans:bean id="bedDAO" class="teja.com.dao.LoginDao">
+		<!-- <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" /> -->
+	</beans:bean>
 
 	<context:component-scan base-package="teja.com.controller" />
 
@@ -76,6 +81,7 @@
 	
 	<beans:bean id="personService" class="teja.com.service.DoctorService"></beans:bean>
 	<beans:bean id="bedService" class="teja.com.service.BedService"></beans:bean>
+	<beans:bean id="bedService" class="teja.com.service.LoginService"></beans:bean>
 	
 	
 
