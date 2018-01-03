@@ -47,19 +47,19 @@
 				<form action="/teja/login" method="post">
 					<div class="form-group">
 						<label for="inputUserName">UserName</label>
-						<input class="form-control" placeholder="Username" name="username" type="text" id="InputUserName"/>
+						<input class="form-control" placeholder="Username" name="username" type="text"/>
 					</div>
 					<div class="form-group">
 						<label for="inputPassword">Password</label>
-						<input class="form-control" placeholder="Password" name="password" type="password" id="Enter the password"/>
+						<input class="form-control" placeholder="Password" name="password" type="password"/>
 					</div>
 					<div class="form-group">
-						<label for="gender">Gender</label>
+						<label for="role">Role</label>
 						<select id="selectGender" name="role" class="form-control">
-							<option>Admin</option>
-							<option>Doctor</option>
-							<option>Receptionist</option>
-							<option>Patent</option>
+							<option>admin</option>
+							<option>doctor</option>
+							<option>receptionist</option>
+							<option>patent</option>
 						</select>
 					</div>
 						<button class="btn btn-primary" type="submit">Login</button>

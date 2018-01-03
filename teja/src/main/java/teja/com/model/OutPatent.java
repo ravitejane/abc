@@ -26,13 +26,7 @@ public class OutPatent extends Patent {
 	
 	private Date appointmentDate;
 	private String precption;
-	
-	
-//	private Doctor doctorInCharge;  // apply one to many
-	
-	
-	
-	
+	private String doctorName;
 	public Date getAppointmentDate() {
 		return appointmentDate;
 	}
@@ -45,6 +39,13 @@ public class OutPatent extends Patent {
 	public void setPrecption(String precption) {
 		this.precption = precption;
 	}
+	public String getDoctorName() {
+		return doctorName;
+	}
+	public void setDoctorName(String doctorName) {
+		this.doctorName = doctorName;
+	}
+	
 	
 	
 }

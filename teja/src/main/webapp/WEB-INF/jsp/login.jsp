@@ -56,10 +56,10 @@
 					<div class="form-group">
 						<label for="gender">Gender</label>
 						<select id="selectGender" name="role" class="form-control">
-							<option>Admin</option>
-							<option>Doctor</option>
-							<option>Receptionist</option>
-							<option>Patent</option>
+							<option>admin</option>
+							<option>doctor</option>
+							<option>receptionist</option>
+							<option>patent</option>
 						</select>
 					</div>
 						<button class="btn btn-primary" type="submit">Login</button>

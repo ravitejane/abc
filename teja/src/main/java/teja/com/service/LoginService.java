@@ -21,13 +21,16 @@ public class LoginService {
 
 	public String checkLogin(Login l)
 	{
+	
 		Login login=ls.getByName(l.getUsername());
-		if(l.equals(login))
+		if(l.hashCode()==login.hashCode())
 		{
 			return login.getRole();
 		}
-		else			
-		return "fail";
+		else	
+		{			
+			return "fail";
+		}
 	}
 
 }

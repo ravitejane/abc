@@ -9,7 +9,7 @@ import teja.com.model.Login;
 import teja.com.service.LoginService;
 
 @Controller
-public class SignUpControler {
+public class LoginController {
 	
 	private LoginService ls;
 	@Autowired
@@ -31,6 +31,10 @@ public class SignUpControler {
 		if(status.equals("admin"))
 		{
 			return "admin";
+		}
+		else if(status.equals("doctor"))
+		{
+			return "redirect:/doctors";
 		}
 		else
 		{

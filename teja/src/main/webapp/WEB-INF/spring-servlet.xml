@@ -65,7 +65,7 @@
 		<!-- <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" /> -->
 	</beans:bean>
 	
-		<beans:bean id="bedDAO" class="teja.com.dao.LoginDao">
+		<beans:bean id="loginDAO" class="teja.com.dao.LoginDao">
 		<!-- <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" /> -->
 	</beans:bean>
 
@@ -81,7 +81,7 @@
 	
 	<beans:bean id="personService" class="teja.com.service.DoctorService"></beans:bean>
 	<beans:bean id="bedService" class="teja.com.service.BedService"></beans:bean>
-	<beans:bean id="bedService" class="teja.com.service.LoginService"></beans:bean>
+	<beans:bean id="loginService" class="teja.com.service.LoginService"></beans:bean>
 	
 	
 
