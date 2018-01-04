@@ -37,10 +37,10 @@
 		<beans:property name="dataSource" ref="dataSource" />
 		<beans:property name="annotatedClasses">
 			<beans:list>
-				<!-- <beans:value>teja.com.model.Person</beans:value>
+				<!-- <beans:value>teja.com.model.Person</beans:value>				
+				<beans:value>teja.com.model.InPatent</beans:value> -->
 				<beans:value>teja.com.model.Patent</beans:value>
-				<beans:value>teja.com.model.InPatent</beans:value>
-				<beans:value>teja.com.model.OutPatent</beans:value> -->
+				<beans:value>teja.com.model.OutPatent</beans:value> 
 				<beans:value>teja.com.model.Login</beans:value>
 				<beans:value>teja.com.model.Bed</beans:value> 
 				<beans:value>teja.com.model.Admin</beans:value>
@@ -56,8 +56,11 @@
 			</beans:props>
 		</beans:property>
 	</beans:bean>
-
-	<beans:bean id="personDAO" class="teja.com.dao.DoctorDao">
+	
+	<beans:bean id="outPatentDAO" class="teja.com.dao.OutPatentDao">
+		<!-- <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" /> -->
+	</beans:bean>
+	<beans:bean id="doctorDAO" class="teja.com.dao.DoctorDao">
 		<!-- <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" /> -->
 	</beans:bean>
 	
@@ -79,6 +82,7 @@
 			ref="hibernate4AnnotatedSessionFactory" />
 	</beans:bean>
 	
+	<beans:bean id="outPatentService" class="teja.com.service.OutPatentService"></beans:bean>
 	<beans:bean id="personService" class="teja.com.service.DoctorService"></beans:bean>
 	<beans:bean id="bedService" class="teja.com.service.BedService"></beans:bean>
 	<beans:bean id="loginService" class="teja.com.service.LoginService"></beans:bean>

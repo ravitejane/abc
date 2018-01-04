@@ -35,10 +35,11 @@ public void setDoctorService(DoctorService doctorService) {
 	@RequestMapping(value= "/doctor/add", method = RequestMethod.POST)
 	public String addDoctor(@ModelAttribute("doctor") Doctor d){
 		
-		if(d.getdId() == 0){
+		if(d.getdId() == null){
 			//new person, add it
 			
-			this.doctorService.addDoctor(d);;
+			this.doctorService.addDoctor(d);
+			
 		}else{
 			//existing person, call update
 		
@@ -50,7 +51,7 @@ public void setDoctorService(DoctorService doctorService) {
 	}
 	
 	@RequestMapping("/remove/{dId}")
-    public String removeDoctor(@PathVariable("dId") int dId){
+    public String removeDoctor(@PathVariable("dId") String dId){
 		
 	
         this.doctorService.removeDoctor(dId);
@@ -59,7 +60,7 @@ public void setDoctorService(DoctorService doctorService) {
     }
  
     @RequestMapping("/edit/{dId}")
-    public String editDoctor(@PathVariable("dId") int dId, Model model){
+    public String editDoctor(@PathVariable("dId") String dId, Model model){
     	
         model.addAttribute("doctor", this.doctorService.getDoctorById(dId));
         model.addAttribute("listDoctors", this.doctorService.listDoctors());

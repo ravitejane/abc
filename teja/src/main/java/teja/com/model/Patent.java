@@ -3,6 +3,8 @@ package teja.com.model;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -14,11 +16,12 @@ import javax.persistence.Table;
 public class Patent {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	private int patentId;	
-	private int name;
+	private String name;
 	private Date dateOfBirth;
 	private String address;
-	private long phoneNo;
+	private int phoneNo;
 	private String gender;
 	private String email;
 	private String bloodGroup;
@@ -32,10 +35,10 @@ public class Patent {
 	public void setPatentId(int patentId) {
 		this.patentId = patentId;
 	}
-	public int getName() {
+	public String getName() {
 		return name;
 	}
-	public void setName(int name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 	public Date getDateOfBirth() {
@@ -50,10 +53,10 @@ public class Patent {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public long getPhoneNo() {
+	public int getPhoneNo() {
 		return phoneNo;
 	}
-	public void setPhoneNo(long phoneNo) {
+	public void setPhoneNo(int phoneNo) {
 		this.phoneNo = phoneNo;
 	}
 	public String getGender() {

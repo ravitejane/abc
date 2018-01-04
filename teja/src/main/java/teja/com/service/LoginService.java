@@ -17,11 +17,15 @@ public class LoginService {
 	public void setLs(LoginDao ls) {
 		this.ls = ls;
 	}
+	
+	public void addLogin(Login l) {
+		ls.addLogin(l);		
+	}
 
 
 	public String checkLogin(Login l)
 	{
-	
+		
 		Login login=ls.getByName(l.getUsername());
 		if(l.hashCode()==login.hashCode())
 		{

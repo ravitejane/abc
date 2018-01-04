@@ -22,5 +22,11 @@ public class LoginDao {
 		Login l=(Login) session.load(Login.class, name);
 		return l;
 	}
+	
+	public void addLogin(Login l) {
+		Session session = this.sessionFactory.getCurrentSession();
+		session.persist(l);
+		
+	}
 
 }

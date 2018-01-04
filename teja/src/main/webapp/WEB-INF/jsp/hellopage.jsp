@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-Message is: ${message}  
+Message is: ${patent}  
 <H1>success</H1>
 </body>
 </html>

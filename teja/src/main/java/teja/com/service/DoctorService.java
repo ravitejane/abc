@@ -39,12 +39,12 @@ public class DoctorService {
 	}
 
 	@Transactional
-	public Doctor getDoctorById(int id) {
+	public Doctor getDoctorById(String id) {
 		return this.doctorDao.getDoctorById(id);
 	}
 
 	@Transactional
-	public void removeDoctor(int id) {
+	public void removeDoctor(String id) {
 		this.doctorDao.removeDoctor(id);
 	}
 

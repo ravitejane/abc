@@ -3,26 +3,29 @@ package teja.com.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-@Table(name="doctor")
 public class Doctor {
 	
-	@Id
-	@Column(name="dId")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int dId;
+	
+	
+	private String dId;
 	private String name;
 	private long phoneNo;
 	private String address;
 	private String specialization;
-	public int getdId() {
+	
+	@Id
+	@GenericGenerator(name="seq_id", strategy="teja.com.utility.DoctorPrimaryKeyGen")
+	@GeneratedValue(generator="seq_id")
+	@Column(name = "dId", unique = true, nullable = false, length = 20)
+	public String getdId() {
 		return dId;
 	}
-	public void setdId(int dId) {
+	public void setdId(String dId) {
 		this.dId = dId;
 	}
 	public String getName() {
@@ -49,30 +52,6 @@ public class Doctor {
 	public void setSpecialization(String specialization) {
 		this.specialization = specialization;
 	}
-	
-	
-	public Doctor(int dId, String name, long phoneNo, String address,
-			String specialization) {
-		super();
-		this.dId = dId;
-		this.name = name;
-		this.phoneNo = phoneNo;
-		this.address = address;
-		this.specialization = specialization;
-		
-	}
-	public Doctor() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	
-	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		return name+" "+dId;
-	}
-	
-	
 	
 	
 

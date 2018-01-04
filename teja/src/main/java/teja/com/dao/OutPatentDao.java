@@ -1,5 +1,6 @@
 package teja.com.dao;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -7,10 +8,11 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import teja.com.model.Doctor;
+import teja.com.model.OutPatent;
 
 @Repository
-public class DoctorDao {
+public class OutPatentDao {
+	
 	
 private SessionFactory sessionFactory;
 	
@@ -18,40 +20,41 @@ private SessionFactory sessionFactory;
 	public void setSessionFactory(SessionFactory sf){
 		this.sessionFactory = sf;
 	}
-
-	public void addDoctor(Doctor d) {
+	
+	public int addOutPatent(OutPatent op) {
 		Session session = this.sessionFactory.getCurrentSession();
-		session.save(d);
+		Serializable id=session.save(op);
+		return  (Integer) id;
 		
 	}
 
-	public void updateDoctor(Doctor d) {
+	public void updateOutPatent(OutPatent op) {
 		Session session = this.sessionFactory.getCurrentSession();
-		session.update(d);
+		session.update(op);
 		
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Doctor> listDoctor() {
+	public List<OutPatent> listOutPatent() {
 		Session session = this.sessionFactory.getCurrentSession();
-		List<Doctor> doctorsList = session.createQuery("from Doctor").list();
+		List<OutPatent> outPatentList = session.createQuery("from OutPatent").list();
 		
-		return doctorsList;
+		return outPatentList;
 	}
 
-	public Doctor getDoctorById(String id) {
-		System.out.println(id);
+	public OutPatent getOutPatentById(String patentId) {
+		System.out.println(patentId);
 		Session session = this.sessionFactory.getCurrentSession();		
-		Doctor d = (Doctor) session.get(Doctor.class, id);
+		OutPatent op = (OutPatent) session.get(OutPatent.class, patentId);
 		// System.out.println(d.toString());
-		return d;
+		return op;
 	}
 
-	public void removeDoctor(String id) {
+	public void removeOutPatent(String patentId) {
 		Session session = this.sessionFactory.getCurrentSession();
-		Doctor d = (Doctor) session.load(Doctor.class, id);
-		if(null != d){
-			session.delete(d);
+		OutPatent op = (OutPatent) session.load(OutPatent.class,patentId);
+		if(null != op){
+			session.delete(op);
 		}
 	}
 
