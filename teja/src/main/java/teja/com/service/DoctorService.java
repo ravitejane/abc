@@ -24,8 +24,8 @@ public class DoctorService {
 
 	
 	@Transactional
-	public void addDoctor(Doctor d) {
-		this.doctorDao.addDoctor(d);
+	public String addDoctor(Doctor d) {
+		return this.doctorDao.addDoctor(d);
 	}
 
 	@Transactional

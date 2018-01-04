@@ -18,14 +18,18 @@ public class DoctorPrimaryKeyGen implements IdentifierGenerator{
         try {
             java.sql.Statement statement=connection.createStatement();
 
-            ResultSet rs=statement.executeQuery("select count(dId) from doctor");
+            ResultSet rs=statement.executeQuery("select dId from doctor order by dId desc limit 1");
 
             if(rs.next())
             {
-                String id="Doc"+(rs.getInt(1)+1);
+                String s=rs.getString(1);
+                String id=s.substring(3,s.length());
+                int did=Integer.parseInt(id);
                
-                return id;
+                return "doc"+(did+1);
             }
+            else
+            	return "doc1";
         } catch (SQLException e) {           
             e.printStackTrace();
         }

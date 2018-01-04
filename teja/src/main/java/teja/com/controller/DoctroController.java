@@ -9,12 +9,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import teja.com.model.Doctor;
+import teja.com.model.Login;
 import teja.com.service.DoctorService;
+import teja.com.service.LoginService;
 
 @Controller
 public class DoctroController {
 	
-	
+	private LoginService ls;
+	@Autowired
+	public void setLs(LoginService ls) {
+		this.ls = ls;
+	}
 	
 	
 private DoctorService doctorService;
@@ -38,8 +44,12 @@ public void setDoctorService(DoctorService doctorService) {
 		if(d.getdId() == null){
 			//new person, add it
 			
-			this.doctorService.addDoctor(d);
-			
+			String dId=this.doctorService.addDoctor(d);
+			Login l=new Login();
+			l.setUsername(dId);
+			l.setPassword("f9f16d97c9d8c6f2cab37bb6d1f1992");
+			l.setRole("doctor");
+			ls.addLogin(l);
 		}else{
 			//existing person, call update
 		

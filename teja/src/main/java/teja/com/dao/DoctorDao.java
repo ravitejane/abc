@@ -1,5 +1,6 @@
 package teja.com.dao;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -19,9 +20,10 @@ private SessionFactory sessionFactory;
 		this.sessionFactory = sf;
 	}
 
-	public void addDoctor(Doctor d) {
+	public String addDoctor(Doctor d) {
 		Session session = this.sessionFactory.getCurrentSession();
-		session.save(d);
+		Serializable dId=session.save(d);
+		return (String) dId;
 		
 	}
 
