@@ -42,15 +42,18 @@
 			
 			<div class="btn-group btn-group-justified">
 				<a class="btn btn-primary" href="#">Book Appointment</a>
-				<a class="btn btn-primary" href="#">Edit Profile</a>
+				<a class="btn btn-primary" href="teja/editProfile">Edit Profile</a>
 				<a class="btn btn-primary" href="#">Status of Appointment</a>
 				<a class="btn btn-primary" href="#">Logout</a>
-			</div>
-		
+			</div>		
 		
 		</div>
 	</div> 
-
+	<div class="row">
+		<div class="col-xs-12">
+		<h2>${patent}</h2>
+		</div>
+	</div>
 	
 </div>
    

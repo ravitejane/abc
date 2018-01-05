@@ -40,7 +40,7 @@ public class LoginController {
 		else if(status.equals("patent"))
 		{
 			model.addAttribute("patent", "welcome : "+username);
-			return "hellopage";
+			return "outPatent";
 		}
 		else
 		{
