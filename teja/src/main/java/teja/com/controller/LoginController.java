@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import teja.com.model.Login;
 import teja.com.service.LoginService;
+import teja.com.service.OutPatentService;
 
 @Controller
 public class LoginController {
@@ -17,7 +18,13 @@ public class LoginController {
 	public void setLs(LoginService ls) {
 		this.ls = ls;
 	}
-
+	
+	private OutPatentService os;	
+	
+	@Autowired
+	public void setOs(OutPatentService os) {
+		this.os = os;
+	}
 
 
 	@RequestMapping("/login")
@@ -39,7 +46,7 @@ public class LoginController {
 		}
 		else if(status.equals("patent"))
 		{
-			model.addAttribute("patent", "welcome : "+username);
+			model.addAttribute("patent", os.getOutPatentById(Integer.parseInt(username)));
 			return "outPatent";
 		}
 		else

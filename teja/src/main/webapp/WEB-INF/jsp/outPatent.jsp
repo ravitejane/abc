@@ -41,9 +41,9 @@
 		<div class="col-xs-12">
 			
 			<div class="btn-group btn-group-justified">
-				<a class="btn btn-primary" href="#">Book Appointment</a>
-				<a class="btn btn-primary" href="teja/editProfile">Edit Profile</a>
-				<a class="btn btn-primary" href="#">Status of Appointment</a>
+				<a class="btn btn-primary" href="/teja/bookAppointment/${patent.patentId}">Book Appointment</a>
+				<a class="btn btn-primary" href="/teja/editProfile/${patent.patentId}">Edit Profile</a>
+				<a class="btn btn-primary" href="/teja/statusOfAppointment/${patent.patentId}">Status of Appointment</a>
 				<a class="btn btn-primary" href="#">Logout</a>
 			</div>		
 		
@@ -51,7 +51,9 @@
 	</div> 
 	<div class="row">
 		<div class="col-xs-12">
-		<h2>${patent}</h2>
+		<h2>${patent.patentId}</h2>
+		<h2>${patent.name}</h2>
+		<h2>${patent.email}</h2>
 		</div>
 	</div>
 	

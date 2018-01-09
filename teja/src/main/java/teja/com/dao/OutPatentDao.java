@@ -42,17 +42,17 @@ private SessionFactory sessionFactory;
 		return outPatentList;
 	}
 
-	public OutPatent getOutPatentById(String patentId) {
+	public OutPatent getOutPatentById(int patentId) {
 		System.out.println(patentId);
 		Session session = this.sessionFactory.getCurrentSession();		
-		OutPatent op = (OutPatent) session.get(OutPatent.class, patentId);
+		OutPatent op = (OutPatent) session.get(OutPatent.class,new Integer(patentId));
 		// System.out.println(d.toString());
 		return op;
 	}
 
-	public void removeOutPatent(String patentId) {
+	public void removeOutPatent(int patentId) {
 		Session session = this.sessionFactory.getCurrentSession();
-		OutPatent op = (OutPatent) session.load(OutPatent.class,patentId);
+		OutPatent op = (OutPatent) session.load(OutPatent.class,new Integer(patentId));
 		if(null != op){
 			session.delete(op);
 		}

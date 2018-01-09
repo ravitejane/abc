@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,17 +25,17 @@ import teja.com.service.OutPatentService;
 @Controller
 public class OpControler {
 	
-	private OutPatentService os;	
+	private OutPatentService outPatentService;	
 	
 	@Autowired
-	public void setOs(OutPatentService os) {
-		this.os = os;
+	public void setOs(OutPatentService outPatentService) {
+		this.outPatentService = outPatentService;
 	}
 	
-	private LoginService ls;
+	private LoginService loginService;
 	@Autowired
-	public void setLs(LoginService ls) {
-		this.ls = ls;
+	public void setLs(LoginService loginService) {
+		this.loginService = loginService;
 	}
 
 	@RequestMapping(value= "/opRegister", method = RequestMethod.POST)
@@ -50,17 +53,17 @@ public class OpControler {
 		 * registering the OutPatent
 		 */
 		
-		OutPatent op=new OutPatent();
-		op.setName(username);
-		op.setEmail(email);
-		op.setPhoneNo(phonenumber);
-		op.setGender(gender);
+		OutPatent outPatent=new OutPatent();
+		outPatent.setName(username);
+		outPatent.setEmail(email);
+		outPatent.setPhoneNo(phonenumber);
+		outPatent.setGender(gender);
 		
 		
 		try
 		 {		    
 		    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		    op.setDateOfBirth(simpleDateFormat.parse(dob));
+		    outPatent.setDateOfBirth(simpleDateFormat.parse(dob));
 		    
 		  } catch (ParseException ex) 
 		  {
@@ -71,11 +74,11 @@ public class OpControler {
 		
 		
 		Login l=new Login();
-		l.setUsername(os.addOutPatent(op)+"");
+		l.setUsername(outPatentService.addOutPatent(outPatent)+"");
 		l.setPassword(password);
 		l.setRole("patent");
 		
-		ls.addLogin(l);
+		loginService.addLogin(l);
 		
 		
 		
@@ -91,6 +94,39 @@ public class OpControler {
 		    out.println();
 		
 		return null;
+	}
+	
+	
+	@RequestMapping(value= "/opUpdate")
+	public String addDoctor(@ModelAttribute("outPatent") OutPatent d){
+		
+		System.out.println("hoo");
+		System.out.println(d.getGender());
+		return null;
+	}
+	
+	
+	
+	
+	@RequestMapping(value= "/editProfile/{patentId}", method = RequestMethod.GET)
+	public String editProfile(@PathVariable("patentId") String patentId,Model model)
+	{
+		model.addAttribute("outPatent", outPatentService.getOutPatentById(Integer.parseInt(patentId)));
+		return "opUpdateProfile";
+	}
+	
+	@RequestMapping(value= "/bookAppointment/{patentId}", method = RequestMethod.GET)
+	public String bookAppointment(@PathVariable("patentId") String patentId,Model model)
+	{
+		model.addAttribute("patent", outPatentService.getOutPatentById(Integer.parseInt(patentId)));
+		return "opBookAppointment";
+	}
+	
+	@RequestMapping(value= "/statusOfAppointment/{patentId}", method = RequestMethod.GET)
+	public String statusOfAppointment(@PathVariable("patentId") String patentId,Model model)
+	{
+		model.addAttribute("patent", outPatentService.getOutPatentById(Integer.parseInt(patentId)));
+		return "opAppointmentStatus";
 	}
 
 }

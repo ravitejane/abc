@@ -39,12 +39,12 @@ public class OutPatentService {
 	}
 
 	@Transactional
-	public OutPatent getOutPatentById(String id) {
+	public OutPatent getOutPatentById(int id) {
 		return this.outPatentDao.getOutPatentById(id);
 	}
 
 	@Transactional
-	public void removeOutPatent(String id) {
+	public void removeOutPatent(int id) {
 		this.outPatentDao.removeOutPatent(id);
 	}
 
